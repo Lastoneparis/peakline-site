@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Peakline &mdash; put the phone in your pocket and ski</title>
+<meta name="description" content="A ski and snowboard day tracker that separates runs from lifts on its own, using GPS and the barometric altimeter. Offline-first. No account.">
+<style>
+:root{--sky:#e8eff6;--snow:#fff;--ink:#101a24;--dim:#5a6b7b;--rule:#d3dde6;--alt:#1d6fa5;--peak:#0f3d5c;--warm:#d9722f}
+@media(prefers-color-scheme:dark){:root{--sky:#0a1119;--snow:#111a24;--ink:#e6eef6;--dim:#8ea2b4;--rule:#1e2b38;--alt:#5aa9dd;--peak:#bcd8ea}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--sky);color:var(--ink);font:16px/1.68 "SF Pro Text",-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+.w{max-width:47rem;margin:0 auto;padding:0 22px 86px}
+header{padding:64px 0 26px}
+.alt{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--alt);font-weight:700;margin-bottom:14px}
+h1{font-size:clamp(28px,5.6vw,42px);line-height:1.16;letter-spacing:-.024em;font-weight:700;max-width:19ch}
+.lede{color:var(--dim);font-size:17.5px;margin-top:15px;max-width:48ch}
+
+/* the altitude profile — Peakline's motif */
+.profile{background:var(--snow);border:1px solid var(--rule);border-radius:14px;padding:20px 20px 14px;margin-top:4px}
+.profile svg{display:block;width:100%;height:132px}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--dim)}
+.legend i{display:inline-block;width:20px;height:3px;border-radius:2px;vertical-align:3px;margin-right:7px}
+h2{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:16px}
+section{padding:34px 0;border-top:1px solid var(--rule)}
+p{color:var(--dim);margin-bottom:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.stats div{background:var(--snow);padding:16px 18px}
+.stats b{display:block;font-size:26px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stats span{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);font-weight:600}
+.caveat{border:1px solid var(--rule);border-left:4px solid var(--warm);border-radius:0 12px 12px 0;background:var(--snow);padding:18px 20px}
+.caveat h3{font-size:16px;font-weight:650;margin-bottom:9px}
+.caveat p{font-size:15px;margin-bottom:9px}
+.caveat p:last-child{margin-bottom:0}
+a{color:var(--alt)}
+footer{border-top:1px solid var(--rule);padding-top:24px;color:var(--dim);font-size:13px}
+</style>
+</head>
+<body>
+<div class="w">
+
+<header>
+  <div class="alt">Peakline &middot; ski &amp; snowboard</div>
+  <h1>Start it at the first lift. Don&rsquo;t touch it again until the bar.</h1>
+  <p class="lede">Peakline works out on its own which parts of your day were runs and which were lifts, from GPS and the iPhone&rsquo;s barometric altimeter. There is nothing to tap at the top of a piste with gloves on.</p>
+</header>
+
+<section style="border-top:0">
+  <h2>One day, as Peakline reads it</h2>
+  <div class="profile">
+    <svg viewBox="0 0 640 132" preserveAspectRatio="none" role="img" aria-label="Altitude profile of a ski day: five descents separated by four lift ascents">
+      <polyline fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="1" points="0,116 640,116"/>
+      <polyline fill="none" stroke="var(--alt)" stroke-width="2.5" stroke-linejoin="round" points="0,110 52,22"/>
+      <polyline fill="none" stroke="var(--peak)" stroke-width="2.5" stroke-linejoin="round" points="52,22 116,104"/>
+      <polyline fill="none" stroke="var(--alt)" stroke-width="2.5" stroke-linejoin="round" points="116,104 172,18"/>
+      <polyline fill="none" stroke="var(--peak)" stroke-width="2.5" stroke-linejoin="round" points="172,18 244,108"/>
+      <polyline fill="none" stroke="var(--alt)" stroke-width="2.5" stroke-linejoin="round" points="244,108 300,26"/>
+      <polyline fill="none" stroke="var(--peak)" stroke-width="2.5" stroke-linejoin="round" points="300,26 384,112"/>
+      <polyline fill="none" stroke="var(--alt)" stroke-width="2.5" stroke-linejoin="round" points="384,112 448,14"/>
+      <polyline fill="none" stroke="var(--peak)" stroke-width="2.5" stroke-linejoin="round" points="448,14 528,100"/>
+      <polyline fill="none" stroke="var(--alt)" stroke-width="2.5" stroke-linejoin="round" points="528,100 576,34"/>
+      <polyline fill="none" stroke="var(--peak)" stroke-width="2.5" stroke-linejoin="round" points="576,34 640,118"/>
+    </svg>
+    <div class="legend">
+      <span><i style="background:var(--peak)"></i>Descent &mdash; counted</span>
+      <span><i style="background:var(--alt)"></i>Lift &mdash; excluded from your stats</span>
+    </div>
+  </div>
+  <p style="margin-top:16px">The split matters more than it sounds. A tracker that counts the whole day tells you that you averaged 14&nbsp;km/h and descended nothing, which describes no skier who has ever lived.</p>
+</section>
+
+<section>
+  <h2>What a day ends with</h2>
+  <div class="stats">
+    <div><b>8 420</b><span>Vertical m</span></div>
+    <div><b>19</b><span>Runs</span></div>
+    <div><b>71.4</b><span>km/h top</span></div>
+    <div><b>46.8</b><span>km on snow</span></div>
+  </div>
+  <p style="margin-top:16px">Days accumulate into a season: totals, personal records, and badges for the things that are actually hard &mdash; the biggest single vertical day, the fastest run, the longest streak of days on snow.</p>
+</section>
+
+<section>
+  <h2>Offline first, and that is not a slogan</h2>
+  <p>Coverage in a valley is whatever it is. Peakline records the whole day locally and needs no connection at any point &mdash; not to start, not to detect runs, not to save. There is no account and no sign-in.</p>
+</section>
+
+<section>
+  <h2>What it does not do</h2>
+  <div class="caveat">
+    <h3>Read this before your first day</h3>
+    <p>There are no resort piste maps. Licensing them is expensive and Peakline does not pretend to have done it &mdash; you get your own track on a standard map, not a named run with a difficulty colour.</p>
+    <p>There is no social layer: no friends, no feed, no leaderboard against strangers. Records are your own.</p>
+    <p>Run detection is inference. A long flat traverse, a very short lift or a gondola that climbs slowly can be misread, and altitude from a barometer drifts with the weather. Peakline lets you correct a day afterwards rather than insisting it was right.</p>
+    <p>Tracking a full day uses GPS continuously, which costs battery. Cold costs more.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Help &amp; legal</h2>
+  <p><a href="support.html">Support</a> &middot; <a href="privacy/">Privacy policy</a> &middot; <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Licence</a></p>
+</section>
+
+<footer>© 2026 Oshi Lab · <a href="mailto:contact@oshi-messenger.com">contact@oshi-messenger.com</a></footer>
+</div>
+</body>
+</html>
